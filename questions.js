@@ -75,7 +75,7 @@ function isPalindrome(str) {
 
 /**
  * Question 4:
- * Try using your answer from `3c` to find the longest word in a sentence.
+ * Try using your code from `3c` to find the longest word in a sentence.
  *
  * Check the comment to see how the output should look!
  */
