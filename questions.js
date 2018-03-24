@@ -5,9 +5,16 @@
  * Check the comment to see how the output should look!
  */
 function reverseString(str) {
+  var str2 = '';
+  for(i = str.length-1; i >= 0; i --){
+    str2 = str2 + str[i];
+  }
 
+  for(i = 0; i < str2.length-1; i ++){
+    console.log(str2[i]);
+  }
+  
 }
-
 // reverseString('hello i am declan')
 // nalced ma i olleh
 
@@ -18,11 +25,38 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
+  var l = sentence.length;
+  var str = '';
+  var stop = l;
+  
+  for(i = l; i >= 0; i --) {
+    
+    if (sentence[i] == ' ' ) {
 
+      for (j = i + 1; j < stop; j ++) {
+        str = str + sentence[j];
+      }
+      str = str + ' ';
+      stop = i;
+      
+      
+    }
+    
+    if (i == 0) {
+      for (m = 0; m < stop; m ++){
+        str = str + sentence[m];
+      }
+    }
+  }
+  
+  for(i = 0; i < str.length; i ++){
+    console.log(str[i]);
+  }
+  
 }
-
 // reverseWords('hello i am declan')
 // declan am i hello
+
 
 /**
  * Question 1c:
@@ -34,54 +68,33 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
+  var l = sentence.length;
+  var str = '';
+  var stop = l;
+  
+  for(i = l; i >= 0; i --) {
+    
+    if (sentence[i] == ' ' ) {
+
+      for (j = stop-1; j >= i; j --) {
+        str = str + sentence[j];
+      }
+      // str = str + ' ';
+      stop = i;
+    }
+    
+    if (i == 0) {
+      for (m = stop; m >= 0; m --){
+        str = str + sentence[m];
+      }
+    }
+  }
+  
+  for(i = 0; i < str.length; i ++){
+    console.log(str[i]);
+  }
 
 }
 
 // reverseWordsInPlace('hello i am declan')
 // olleh i ma nalced
-
-
-/**
- * Question 2:
- * Find the unique values in an Array.
- *
- * Check the comment below to see how the output should look!
- */
-const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
-
-function uniqueArray(array) {
-
-}
-
-// uniqueArray(array)
-// [ 2, 4, 1, 6, 5, 3, 8, 0, 7 ]
-
-
-/**
-* Question 3:
-* Check if the word is a palindrome. A palindrome is a word that is spelt the same
-* backwards and forwards.
-*/
-function isPalindrome(str) {
-
-}
-
-// 3a: Make the following return `true`
-// isPalindrome('racecar')
-// 3b: Make the following return `true`
-// isPalindrome('Racecar')
-// 3c: Make the following return `true`
-// isPalindrome('Racecar!!!!!')
-
-/**
- * Question 4:
- * Try using your code from `3c` to find the longest word in a sentence.
- *
- * Check the comment to see how the output should look!
- */
-function longestWord(sentence) {
-
-}
-
-longestWord('this is declan, and that\'s declan\'s pencil')
-// declans
