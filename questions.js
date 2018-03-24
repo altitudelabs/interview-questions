@@ -5,7 +5,7 @@
  * Check the comment to see how the output should look!
  */
 function reverseString(str) {
-
+    return str.split('').reverse().join('')
 }
 
 // reverseString('hello i am declan')
@@ -18,7 +18,7 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
-
+    return sentence.split(' ').reverse().join(' ')
 }
 
 // reverseWords('hello i am declan')
@@ -34,7 +34,9 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
-
+    return sentence.split(' ').map((word) => {
+        return reverseString(word)
+    }).join(' ')
 }
 
 // reverseWordsInPlace('hello i am declan')
@@ -50,7 +52,11 @@ function reverseWordsInPlace(sentence) {
 const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
 
 function uniqueArray(array) {
-
+    var s = {}
+    array.forEach((a) => {
+        s[a] = ""
+    })
+    return Object.keys(s)
 }
 
 // uniqueArray(array)
@@ -62,16 +68,39 @@ function uniqueArray(array) {
 * Check if the word is a palindrome. A palindrome is a word that is spelt the same
 * backwards and forwards.
 */
-function isPalindrome(str) {
 
+// function palindrome(str) {
+//         if (s[0] == s[s.length-1]) {
+//             return str
+//         } else {
+//             return false;
+//         }
+//     return true;
+//     // return (str[0] == str[str.length-1])? palindrome(str.slice(1, str.length - 1)) : false;
+// }
+function isPalindrome(str) {
+    var s = str.toLowerCase().split('').map((letter) => {
+        return (letter.charCodeAt() < 97 || letter.charCodeAt() > 122)? '': letter
+    }).join('')
+
+    // return palindrome(s)
+    console.log(s.length)
+    for(var i = 0; i < Math.floor(s.length/2); i++) {
+        if (s[i] == s[s.length-i-1]) {
+            continue;
+        } else {
+            return false;
+        }
+    }
+    return true;
 }
 
 // 3a: Make the following return `true`
-// isPalindrome('racecar')
+isPalindrome('racecar')
 // 3b: Make the following return `true`
-// isPalindrome('Racecar')
+isPalindrome('Racecar')
 // 3c: Make the following return `true`
-// isPalindrome('Racecar!!!!!')
+isPalindrome('Racecar!!!!!')
 
 /**
  * Question 4:
@@ -80,7 +109,10 @@ function isPalindrome(str) {
  * Check the comment to see how the output should look!
  */
 function longestWord(sentence) {
-
+    var s = sentence.split(' ')
+    var j = []
+    s.forEach(s => j.push(0))
+    
 }
 
 longestWord('this is declan, and that\'s declan\'s pencil')
