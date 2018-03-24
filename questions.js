@@ -1,87 +1,64 @@
-/**
- * Question 1a:
- * Complete the function below to reverse a String.
- *
- * Check the comment to see how the output should look!
- */
 function reverseString(str) {
-
+  str = str.split('').reverse();
+  str = str.join('');
+  return str;
 }
 
-// reverseString('hello i am declan')
-// nalced ma i olleh
+reverseString('hello');
 
-/**
- * Question 1b:
- * Complete the function below to reverse the words in a String.
- *
- * Check the comment to see how the output should look!
- */
 function reverseWords(sentence) {
-
+  sentence = sentence.split(' ').reverse();
+  sentence = sentence.join(' ');
+  //console.log(sentence);
+  return sentence;
 }
 
-// reverseWords('hello i am declan')
-// declan am i hello
+reverseWords('Hello this is declan');
 
-/**
- * Question 1c:
- * Complete the function below to reverse the words in a String __in place__. This
- * means that `hello` will still be the first word of the sentence, but it will be
- * reversed! If it helps, you can re-use `reverseString`, but this doesn't mean doing
- * so is the best answer :)
- *
- * Check the comment to see how the output should look!
- */
+
 function reverseWordsInPlace(sentence) {
-
+  sentence = sentence.split(' ');
+  for(let i=0; i<sentence.length; i++){
+    sentence[i] = reverseString(sentence[i]);
+  }
+  sentence = sentence.join(' ');
+  //console.log(sentence);
+  return sentence;
 }
 
-// reverseWordsInPlace('hello i am declan')
-// olleh i ma nalced
-
-
-/**
- * Question 2:
- * Find the unique values in an Array.
- *
- * Check the comment below to see how the output should look!
- */
-const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
+reverseWordsInPlace('Hello this is a question');
 
 function uniqueArray(array) {
-
+  let uniqueValues = [];
+  for(let i=0; i<array.length; i++) {
+    if(uniqueValues.indexOf(array[i]) < 0) uniqueValues.push(array[i]);
+  }
+  return uniqueValues;
 }
 
-// uniqueArray(array)
-// [ 2, 4, 1, 6, 5, 3, 8, 0, 7 ]
+uniqueArray([1,1,3,3,4,4,5,5,6]);
 
-
-/**
-* Question 3:
-* Check if the word is a palindrome. A palindrome is a word that is spelt the same
-* backwards and forwards.
-*/
 function isPalindrome(str) {
-
+  let reversedString = reverseString(str);
+  if(str.length != reversedString.length) return false;
+  for(let i=0; i<str.length; i++) {
+    if(str[i] != reversedString[i]) {
+      return false;
+    }
+  }
+  return true;
 }
 
-// 3a: Make the following return `true`
-// isPalindrome('racecar')
-// 3b: Make the following return `true`
-// isPalindrome('Racecar')
-// 3c: Make the following return `true`
-// isPalindrome('Racecar!!!!!')
+isPalindrome('racecar');
 
-/**
- * Question 4:
- * Try using your code from `3c` to find the longest word in a sentence.
- *
- * Check the comment to see how the output should look!
- */
 function longestWord(sentence) {
-
+  let max = '';
+  sentence = sentence.split(' ');
+  for(let i=0; i<sentence.length; i++) {
+    max =  max.length > sentence[i].length? max : sentence[i]
+  }
+  return max;
 }
 
-longestWord('this is declan, and that\'s declan\'s pencil')
-// declans
+longestWord('Hello I am a pen.');
+
