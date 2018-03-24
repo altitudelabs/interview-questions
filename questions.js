@@ -5,7 +5,16 @@
  * Check the comment to see how the output should look!
  */
 function reverseString(str) {
-
+var result = '';
+	//for(var i=0;i<temp.length;i++){
+	  //console.log(temp[i]);
+	  for(var j=str.length;j>=0;j--){
+	    result+=str.charAt(j);
+	  }
+	  result +=' ';
+	//}
+	//console.log(result);
+	return result;
 }
 
 // reverseString('hello i am declan')
@@ -18,7 +27,15 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
-
+ var result = '';
+  var temp = str.split(' ');
+  var i=temp.length-1;
+  for(;i>0;i--){
+    result+=temp[i];
+    result+=' ';
+  }
+  result+=temp[i];
+  return result;
 }
 
 // reverseWords('hello i am declan')
@@ -34,7 +51,16 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
-
+var result = '';
+  var temp = str.split(' ');
+  var i = temp.length-1;
+  for(;i>0;i--){
+    for(var j=temp[i].length;j>=0;j--){
+      result+=temp[i].charAt(j);
+    }
+    result+=' ';
+  }
+  return result;
 }
 
 // reverseWordsInPlace('hello i am declan')
@@ -50,7 +76,14 @@ function reverseWordsInPlace(sentence) {
 const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
 
 function uniqueArray(array) {
-
+var result = [];
+  for(var i=0;i<array.length;i++){
+    for(var j =0;j<result.length;j++){
+      if(array[i]!=result[j]){
+        result+=array[i];
+      }
+    }
+  }
 }
 
 // uniqueArray(array)
