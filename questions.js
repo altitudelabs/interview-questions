@@ -5,10 +5,20 @@
  * Check the comment to see how the output should look!
  */
 function reverseString(str) {
+  var temp; //init temp and pass str into it
+  var tmp2 ='';
+  temp = str.split('');
+  var j =0;
+  for (var i=str.length-1; i>=0; i--){ //try to revise the string
+    temp[j]=str[i];
+    j++;
+    tmp2+=str[i];
+  }
 
+  return tmp2;
 }
 
-// reverseString('hello i am declan')
+//reverseString('hello i am declan')
 // nalced ma i olleh
 
 /**
@@ -18,7 +28,14 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
-
+  var newsent = sentence.split(' ');
+  var temp ='';
+  for (var i = newsent.length-1; i>=0; i--){
+    temp += (newsent[i]);
+    if (i > 0)
+      temp += ' ';
+  }
+  return temp;
 }
 
 // reverseWords('hello i am declan')
@@ -34,7 +51,14 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
-
+  var newsent = sentence.split(' ');
+  var temp ='';
+  for (var i = 0; i<newsent.length; i++){
+    temp += reverseString(newsent[i]);
+    if (i < newsent.length)
+      temp += ' ';
+  }
+  return temp;
 }
 
 // reverseWordsInPlace('hello i am declan')
@@ -50,10 +74,25 @@ function reverseWordsInPlace(sentence) {
 const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
 
 function uniqueArray(array) {
+  var temp = [];
+  var unique = [];
+  var flag;
+  for (var i =0; i<array.length; i++){
+    flag = 0;
+    for (var j = 0; j<unique.length; j++){
+      if (unique[j] == array[i]){
+        flag = 1;
 
+      }
+      if (flag==0){
+        temp.push(array[i])
+      }
+    }
+  }
+  return temp;
 }
 
-// uniqueArray(array)
+ uniqueArray(array)
 // [ 2, 4, 1, 6, 5, 3, 8, 0, 7 ]
 
 
@@ -83,5 +122,5 @@ function longestWord(sentence) {
 
 }
 
-longestWord('this is declan, and that\'s declan\'s pencil')
+//longestWord('this is declan, and that\'s declan\'s pencil')
 // declans
