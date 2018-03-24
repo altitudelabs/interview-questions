@@ -5,6 +5,15 @@
  * Check the comment to see how the output should look!
  */
 function reverseString(str) {
+  var array  = [];
+  var temp = 0;
+  temp = str.split();
+  for (int i = 0; i < temp.length(); i++){
+    array[i] = temp[i];
+  }
+  for (int j = temp.length(); j > 0; j-- ){
+    printf(array[j]);
+  }
 
 }
 
@@ -17,8 +26,15 @@ function reverseString(str) {
  *
  * Check the comment to see how the output should look!
  */
-function reverseWords(sentence) {
-
+function reverseWords(str) {
+  var array  = []; //creat a stack
+  array.push(str.split(' ')); //push each word into the stack when meenting a space
+  array.pop(); //pop each word
+  //print out the result
+  
+  
+  printf(\n);
+  
 }
 
 // reverseWords('hello i am declan')
@@ -35,6 +51,13 @@ function reverseWords(sentence) {
  */
 function reverseWordsInPlace(sentence) {
 
+    var temp = [];
+    temp = sentence.split(' ');
+    for (int i = 0; i < temp.length().]; i++){
+      reverseString(temp[i]);
+      printf(' ');
+    }
+    
 }
 
 // reverseWordsInPlace('hello i am declan')
@@ -50,7 +73,7 @@ function reverseWordsInPlace(sentence) {
 const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
 
 function uniqueArray(array) {
-
+  //create an array and save the word 
 }
 
 // uniqueArray(array)
