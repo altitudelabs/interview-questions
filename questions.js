@@ -5,10 +5,11 @@
  * Check the comment to see how the output should look!
  */
 function reverseString(str) {
-
+  let result = str.split('').reverse().join('');
+  return result;
 }
 
-// reverseString('hello i am declan')
+console.log(reverseString('hello i am declan'));
 // nalced ma i olleh
 
 /**
@@ -18,10 +19,11 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
-
+  let result = sentence.split(' ').reverse().join(' ');
+  return result;
 }
 
-// reverseWords('hello i am declan')
+console.log(reverseWords('hello i am declan'));
 // declan am i hello
 
 /**
@@ -34,10 +36,11 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
-
+  let result = sentence.split(' ').map(v => reverseString(v)).join(' ');
+  return result;
 }
 
-// reverseWordsInPlace('hello i am declan')
+console.log(reverseWordsInPlace('hello i am declan'));
 // olleh i ma nalced
 
 
@@ -50,10 +53,13 @@ function reverseWordsInPlace(sentence) {
 const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
 
 function uniqueArray(array) {
-
+  let s = new Set();
+  array.forEach(v => {s.add(v)});
+  return Array.from(s);
 }
 
-// uniqueArray(array)
+console.log(uniqueArray(array))
+
 // [ 2, 4, 1, 6, 5, 3, 8, 0, 7 ]
 
 
@@ -63,8 +69,24 @@ function uniqueArray(array) {
 * backwards and forwards.
 */
 function isPalindrome(str) {
-
+  return reverseString(str) == str;
 }
+
+function isPalindrome3b(str) {
+  return reverseString(str).toLowerCase() == str.toLowerCase();
+}
+
+function removeNonAlpha(str) {
+  return str.split('').filter(v => /\w/.test(v)).join('');
+}
+
+function isPalindrome3c(str) {
+  return isPalindrome3b(removeNonAlpha(str));
+}
+
+console.log(isPalindrome('racecar'));
+console.log(isPalindrome3b('Racecar'));
+console.log(isPalindrome3c('Raceca\'r!!'));
 
 // 3a: Make the following return `true`
 // isPalindrome('racecar')
@@ -80,8 +102,10 @@ function isPalindrome(str) {
  * Check the comment to see how the output should look!
  */
 function longestWord(sentence) {
-
+  return sentence.split(' ').map(v => removeNonAlpha(v)).map(v => ({
+    value: v, length: v.length
+  })).reduce((a, b) => a.length > b.length ? a : b).value;
 }
 
-longestWord('this is declan, and that\'s declan\'s pencil')
+console.log(longestWord('this is declan, and that\'s declan\'s pencil'));
 // declans
