@@ -4,10 +4,15 @@
  *
  * Check the comment to see how the output should look!
  */
+ 
 function reverseString(str) {
+  var output = '';
+  for (var i = str.length-1; i>=0;i--) {
+    output += str[i];
+  }
+  return output;
 
 }
-
 // reverseString('hello i am declan')
 // nalced ma i olleh
 
@@ -18,7 +23,12 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
-
+  var output = '';
+  let array = sentence.split(' ');
+  for (var i = array.length-1; i>=0;i--) {
+    output += array[i] + ' ';
+  }
+  return output;
 }
 
 // reverseWords('hello i am declan')
@@ -34,7 +44,12 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
-
+  var output = '';
+  let array = sentence.split(' ');
+  for (var i = 0; i<array.length;i++) {
+    output += reverseString(array[i]) + ' ';
+  }
+  return output;
 }
 
 // reverseWordsInPlace('hello i am declan')
@@ -50,7 +65,13 @@ function reverseWordsInPlace(sentence) {
 const array = [2, 2, 4, 1, 6, 5, 3, 2, 8, 8, 0, 1, 7]
 
 function uniqueArray(array) {
-
+  let output = [];
+  for (var i = 0; i<array.length;i++) {
+    if (!output.includes(array[i])) {
+      output.push(array[i]);
+    }
+  }
+  return output;
 }
 
 // uniqueArray(array)
@@ -63,7 +84,14 @@ function uniqueArray(array) {
 * backwards and forwards.
 */
 function isPalindrome(str) {
-
+  let output = str.split(/[^a-zA-Z]/);
+  let modifiedWord = output[0].toLowerCase();
+  let reversedString = reverseString(modifiedWord);
+  if ( modifiedWord == reversedString ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // 3a: Make the following return `true`
@@ -80,7 +108,22 @@ function isPalindrome(str) {
  * Check the comment to see how the output should look!
  */
 function longestWord(sentence) {
-
+  let splitedWords = sentence.split(' ');
+  let secondSplitedWords = [];
+  splitedWords.map((subString) => {
+    let temp = subString.split(/[^a-zA-Z]/);
+    secondSplitedWords.push(temp.length > 1? temp[0]+temp[1] : temp[0]);
+  })
+  
+  let output = '';
+  let strLength = 0;
+  for (var i = 0; i<secondSplitedWords.length;i++) {
+    if (secondSplitedWords[i].length > strLength) {
+      strLength = secondSplitedWords[i].length;
+      output = secondSplitedWords[i];
+    }
+  }
+  return output;
 }
 
 longestWord('this is declan, and that\'s declan\'s pencil')
