@@ -4,8 +4,22 @@
  *
  * Check the comment to see how the output should look!
  */
+
+/**
 function reverseString(str) {
 
+}
+**/
+
+function reverseString(str) {
+  
+  str_size = sizeof(str);
+  output_str[256];
+  
+  for(i=0;i<str_size;i++){
+    output_str[i] = str[str_size - 1];
+  }
+  console.log(output_str);
 }
 
 // reverseString('hello i am declan')
@@ -18,7 +32,22 @@ function reverseString(str) {
  * Check the comment to see how the output should look!
  */
 function reverseWords(sentence) {
-
+  var total_length = sentence.length;
+  var temp_array = [];
+  var output_string = [];
+  var temp;
+  var no_of_word = 0;
+  
+  for(i=0;i<total_length;i++){
+    sentence.pop = temp;
+    if(temp == ' '){
+      output_string[no_of_word] = temp_array[no_of_word];
+      no_of_word++;
+    }else{
+      temp_array[i] = temp;
+    }
+  }
+  console.log(output_string);
 }
 
 // reverseWords('hello i am declan')
@@ -34,7 +63,9 @@ function reverseWords(sentence) {
  * Check the comment to see how the output should look!
  */
 function reverseWordsInPlace(sentence) {
-
+  var str = reverseWords(sentence);
+  var reverseString(str);
+  console.log(str);
 }
 
 // reverseWordsInPlace('hello i am declan')
